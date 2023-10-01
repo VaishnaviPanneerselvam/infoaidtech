@@ -1,116 +1,223 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="img/blackred.png" type="image/x-icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:500" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <title>Air Max | Home</title>
-</head>
-
-<body>
-    <header>
-        <div class="menu-toggle">
-            <i class="fas fa-bars"></i>
+<html>
+  <head>
+    <title>CALCULATOR WITH VANILLA JS</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/soapBubbles.css">
+    <link rel="stylesheet" href="./css/dotBubbles.css">
+    <link rel="stylesheet" href="./css/togglebtn.css" />
+    <link rel="stylesheet" href="./css/dropdown.css">
+    <!-- favicon  -->
+    <link rel="icon" type="image/x-icon" href="/images/calculator.png" />
+    <!-- Icons  -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+  </head>
+  <body onload="initHaptics()">
+    <header style="display: flex; justify-content: space-between; align-items: center;">
+      
+        <div class="dropdown">
+          <a href="javascript:void(0)" class="dropbtn"><i class="bi bi-palette-fill"></i><p>Theme</p></a>
+          <div class="dropdown-content">
+            <div onclick="selectTheme('Bubbles')">Bubbles</div>
+            <div onclick="selectTheme('Number Bubbles')">Number Bubbles</div>
+            <div onclick="selectTheme('Dot Bubbles')">Dot Bubbles</div>
+          </div>
         </div>
-        <div class="overlay"></div>
-        <nav>
-            <i class="fas fa-times"></i>
-            <div class="logo">
-                <img src="img/nike.png" alt="nikey">
-            </div>
-
-            <div class="nav-middle">
-                <ul>
-                    <li><a href="">Collection</a></li>
-                    <li><a href="">Catalogue</a></li>
-                    <li><a href="">About Us</a></li>
-                    <li><a href="">Blog</a></li>
-                </ul>
-            </div>
-            <div class="nav-right">
-                <ul>
-                    <li>
-                        <a href="">
-                            <i class="fas fa-search"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <i class="fas fa-user"></i> Account
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <i class="fas fa-shopping-cart"></i> Cart
-                        </a>
-                    </li>
-
-                </ul>
-            </div>
-        </nav>
-        <div class="main">
-            <div class="tone-1">
-                <div class="product-info">
-                    <h1>NIKE AIR MAX 270</h1>
-                    <p>New and Improved</p>
-                    <h2>$ 200</h2>
-                    <div class="info-btns">
-                        <a href="" class="btn discover-btn">DISCOVER</a>
-                        <a href="" class="btn cart-btn">ADD TO CART</a>
-                    </div>
-                </div>
-            </div>
-            <div class="tone-2">
-                <div class="carousel">
-                    <div class="carousel-inner">
-                        <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true"
-                            hidden="" checked="checked">
-                        <div class="carousel-item">
-                            <img src="img/blackred.png">
-                        </div>
-                        <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true"
-                            hidden="">
-                        <div class="carousel-item">
-                            <img src="img/airpink.png">
-                        </div>
-                        <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true"
-                            hidden="">
-                        <div class="carousel-item">
-                            <img src="img/airboth.png">
-                        </div>
-                        <label for="carousel-3" class="carousel-control prev control-1">‹</label>
-                        <label for="carousel-2" class="carousel-control next control-1">›</label>
-                        <label for="carousel-1" class="carousel-control prev control-2">‹</label>
-                        <label for="carousel-3" class="carousel-control next control-2">›</label>
-                        <label for="carousel-2" class="carousel-control prev control-3">‹</label>
-                        <label for="carousel-1" class="carousel-control next control-3">›</label>
-                        <ol class="carousel-indicators">
-                            <li>
-                                <label for="carousel-1" class="carousel-bullet">•</label>
-                            </li>
-                            <li>
-                                <label for="carousel-2" class="carousel-bullet">•</label>
-                            </li>
-                            <li>
-                                <label for="carousel-3" class="carousel-bullet">•</label>
-                            </li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+      
+      <div class="toggle-container" class="prevent-select">
+        <input id="switch" type="checkbox" name="theme" />
+        <label class="toggleLabel" for="switch">
+          <i class="bi bi-brightness-high-fill sun"></i>
+          <i class="bi bi-moon-fill moon"></i>
+        </label>
+      </div>
     </header>
+    <main>
+
+      <div class="background">
+        <div class="bubbles">
+          <span class="one"></span>
+          <span class="two"></span>
+          <span class="three"></span>
+          <span class="four"></span>
+          <span class="five"></span>
+          <span class="six"></span>
+          <span class="seven"></span>
+          <span class="seven"></span>
+        </div>
+        <div class="bubbles">
+          <span class="one"></span>
+          <span class="two"></span>
+          <span class="three"></span>
+          <span class="four"></span>
+          <span class="five"></span>
+          <span class="six"></span>
+          <span class="seven"></span>
+          <span class="seven"></span>
+        </div>
+        <div class="bubbles">
+          <span class="one"></span>
+          <span class="two"></span>
+          <span class="three"></span>
+          <span class="four"></span>
+          <span class="five"></span>
+          <span class="six"></span>
+          <span class="seven"></span>
+          <span class="seven"></span>
+        </div>
+        <div class="bubbles">
+          <span class="one"></span>
+          <span class="two"></span>
+          <span class="three"></span>
+          <span class="four"></span>
+          <span class="five"></span>
+          <span class="six"></span>
+          <span class="seven"></span>
+          <span class="seven"></span>
+        </div>
+      </div>
+
+      <div class="background">
+        <div class="soap-bubbles">
+          <div class="soap-bubble">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span>+</span>
+          </div>
+          <div class="soap-bubble">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span>1</span>
+          </div>
+          <div class="soap-bubble">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span>5</span>
+          </div>
+          <div class="soap-bubble">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span>(</span>
+          </div>
+          <div class="soap-bubble">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span>/</span>
+          </div>
+          <div class="soap-bubble">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span>2</span>
+          </div>
+          <div class="soap-bubble">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span>9</span>
+          </div>
+        </div>
+      </div>
+      <div class="background">
+        <div class="dot-bubbles">
+          <span style="--i:11;"></span>          <span style="--i:12;"></span>
+          <span style="--i:24;"></span>          <span style="--i:10;"></span>
+          <span style="--i:14;"></span>          <span style="--i:23;"></span>
+          <span style="--i:18;"></span>          <span style="--i:16;"></span>
+          <span style="--i:19;"></span>          <span style="--i:20;"></span>
+          <span style="--i:22;"></span>          <span style="--i:25;"></span>
+          <span style="--i:18;"></span>          <span style="--i:21;"></span>
+          <span style="--i:15;"></span>          <span style="--i:13;"></span>
+          <span style="--i:26;"></span>          <span style="--i:17;"></span>
+          <span style="--i:13;"></span>          <span style="--i:28;"></span>
+          <span style="--i:11;"></span>          <span style="--i:12;"></span>
+          <span style="--i:24;"></span>          <span style="--i:10;"></span>
+          <span style="--i:14;"></span>          <span style="--i:23;"></span>
+          <span style="--i:18;"></span>          <span style="--i:16;"></span>
+          <span style="--i:19;"></span>          <span style="--i:20;"></span>
+          <span style="--i:22;"></span>          <span style="--i:25;"></span>
+          <span style="--i:18;"></span>          <span style="--i:21;"></span>
+          <span style="--i:15;"></span>          <span style="--i:13;"></span>
+          <span style="--i:26;"></span>          <span style="--i:17;"></span>
+          <span style="--i:13;"></span>          <span style="--i:23;"></span>
+          <span style="--i:18;"></span>          <span style="--i:16;"></span>
+          <span style="--i:19;"></span>          <span style="--i:20;"></span>
+          <span style="--i:22;"></span>          <span style="--i:28;"></span>
+          <span style="--i:23;"></span>          <span style="--i:18;"></span>
+          <span style="--i:16;"></span>          <span style="--i:19;"></span>
+          <span style="--i:17;"></span>          <span style="--i:22;"></span>
+          <span style="--i:12;"></span>          <span style="--i:19;"></span>
+          <span style="--i:27;"></span>          <span style="--i:22;"></span>
+          <span style="--i:30;"></span>          <span style="--i:11;"></span>
+          <span style="--i:29;"></span>          <span style="--i:28;"></span>
+        </div>
+      </div>
+
+      <section class="prevent-select">
+            <div class="container">
+              <div class="display">
+                <div class="display-1" style="margin: 7px 0px;">0</div>
+                <div class="display-2" style="margin: 7px 0px;">0</div>
+              </div>
+              <div class="all_button">
+                <div class="button last-entity-clear">C</div>
+                <div class="button all-clear">AC</div>
+                <div class="button operation">%</div>
+                <div class="button operation">^</div>
+                <div class="button number">7</div>
+                <div class="button number">8</div>
+                <div class="button number">9</div>
+                <div class="button operation">!</div>
+                <div class="button number">4</div>
+                <div class="button number">5</div>
+                <div class="button number">6</div>
+                <div class="button operation">/</div>
+                <div class="button number">1</div>
+                <div class="button number">2</div>
+                <div class="button number">3</div>
+                <div class="button operation">x</div>
+                <div class="button btn-0 number">0</div>
+                <div class="button del number">Del</div>
+                <div class="button number dot">.</div>
+                <div class="button operation">-</div>
+                <div class="button operation">+</div>
+                <div class="button equal">=</div>
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="js/scripts.js"></script>
-</body>
-
+                <!-- <div class="button radian">Rad</div>
+                <div class="button degree">deg</div>
+                <div class="button exponential">exp</div>-->
+                
+              </div>
+            </div>
+          </section>
+    </main>
+  </body>
+  <script src="./js/evalutor.js"></script>
+  <script src="./js/main.js"></script>
+  <script src="./js/togglebtn.js"></script>
+  <script src="./js/dropdown.js"></script>
 </html>
